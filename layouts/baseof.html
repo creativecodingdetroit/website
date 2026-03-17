@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <header>
+    {{ partial "menu.html" . }}
+    <div class="hero">
+      <a href="/"><img src="/img/creativecodingdetroit_logo.jpg"></a>
+    </div>
+  </header>
+  <main>
+    {{ block "title" . }}{{ end }}
+    {{ block "main" . }}
+      body
+    {{ end }}
+  </main>
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
+</body>
+</html>
