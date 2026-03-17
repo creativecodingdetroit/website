@@ -3,4 +3,4 @@ title = 'BULK SPACE'
 tags = ['risograph','workshops']
 +++
 
-risograph
+https://www.bulk-space.com/

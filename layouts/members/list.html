@@ -7,9 +7,11 @@
   <div class="members">
   {{ range .Pages }}
     <div class="member">
-      <h3>
-        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-      </h3>
+
+      <a href="{{ .RelPermalink }}"><h3>{{ .LinkTitle }}</h3></a>
+
+      {{ .Param "forumUsername" }}
+
       {{ with .Params.tags }}
         {{ if ge (len .) 1 }}
           <div class="tags">

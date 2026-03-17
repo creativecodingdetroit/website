@@ -4,9 +4,11 @@
 
 {{ define "main" }}
   {{ .Content }}
-  <ul>
-  {{ range .Pages }}
-    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-  {{ end }}
-  </ul>
+  <div class="section">
+    {{ range .Pages }}
+      <div class="section-item">
+        <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+      </div>
+    {{ end }}
+  </div>
 {{ end }}

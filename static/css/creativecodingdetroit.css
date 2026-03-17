@@ -6,7 +6,10 @@
   --line-decoration-color: #555;
   --line-decoration: .5px solid var(--line-decoration-color);
   --accent-color: #eee;
+  --underline-color: #f0d;
+  --underline-color-2: #fff1;
 }
+
 
 html {
   background-color: #222;
@@ -25,11 +28,19 @@ body {
 a,
 a:active {
   color: inherit;
-  text-decoration-color: var(--accent-color);
+  text-decoration-color: var(--underline-color);
+  text-decoration-line: underline;
+  /*text-decoration-style: dotted;*/
+  text-decoration-thickness: .5pt;
+  transition: text-decoration-thickness .4s, text-decoration-color 2s;
+}
+
+a:hover {
+  text-decoration-thickness: 1rem;
+  text-decoration-color: var(--underline-color-2);
 }
 
 header {
-  margin-bottom: 4rem;
 }
 
 nav {
@@ -51,7 +62,8 @@ nav > ul > li {
   perspective: 200px;
 }
 
-nav > ul > li > a {
+nav > ul > li > a,
+nav > ul > li > a:hover {
   text-decoration: none;
   display: block;
   padding: 1rem;
@@ -113,11 +125,6 @@ footer {
   border-left: var(--line-decoration);
 }
 
-.breadcrumbs::before {
-  content: '⟨';
-  margin-right: .5rem;
-}
-
 hr {
    border: none;
    border-top: var(--line-decoration);
@@ -160,12 +167,15 @@ strong {
   color: #eee;
 }
 
-.accented {
+div.page-title h1,
+div.page-title h2,
+div.page-title h3 {
   color: var(--accent-color);
+  margin: 1rem 0;
 }
 
-dl {
-  /*border-top: var(--line-decoration);*/*/
+div.page-title {
+  margin: 4rem 0;
 }
 
 dt {
@@ -185,8 +195,23 @@ dd::before {
   margin-right: .5rem;
 }
 
+div.section-item {
+}
 
-/* resource styling */
+div.section-item + div.section-item {
+  margin-top: 1rem;
+}
+
+div.section-item > h3::before {
+  content: '➜';
+  margin-right: .5rem;
+  color: var(--accent-color);
+}
+div.section-item > h3 {
+  margin: 0;
+}
+
+/* resource & member styling */
 
 div.resource,
 div.member
@@ -196,9 +221,10 @@ div.member
   border: var(--line-decoration);
 }
 
-div.resource > h3,
-div.member > h3 {
+div.resource h3,
+div.member h3 {
   margin: 0;
+  color: var(--accent-color);
 }
 
 div.members {
@@ -213,13 +239,25 @@ div.member {
   min-height: 100px;
 }
 
+div.tags {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 a.tag {
   display: inline-block;
-  padding: .25rem .5rem;
+  padding: .25rem 1rem .125rem;
   font-size: .618rem;
-  line-height: 100%;
+  /*font-size-adjust: .5;*/
+  line-height: 1rem;
+  font-weight: bold;
   background-color: var(--accent-color);
   color: #111;
   border-radius: .125rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0 1px 1px 0;
 }
+
 

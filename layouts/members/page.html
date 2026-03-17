@@ -6,6 +6,12 @@
 {{ define "main" }}
   {{ .Content }}
 
+  {{ if .Param "forumUsername" }}
+    <div>
+    Forum username: {{ .Param "forumUsername" }}
+    </div>
+  {{ end }}
+
   {{ with .Params.tags }}
     {{ if ge (len .) 1 }}
       <div class="tags">

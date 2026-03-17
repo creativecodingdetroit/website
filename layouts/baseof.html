@@ -11,9 +11,13 @@
     </div>
   </header>
   <main>
-    {{ block "title" . }}{{ end }}
+    <div class="page-title">
+      {{ block "title" . }}
+        title here
+      {{ end }}
+    </div>
     {{ block "main" . }}
-      body
+      body here
     {{ end }}
   </main>
   <footer>
