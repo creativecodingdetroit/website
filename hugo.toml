@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+# baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Project'
 
@@ -8,6 +8,10 @@ title = 'My New Hugo Project'
     URL = 'https://forum.creativecodingdetroit.org/'
     name = 'Forum'
     weight = 20
+  [[menus.main]]
+    URL = '/tags/'
+    name = 'Tags'
+    weight = 70
 
   [[menus.contact]]
     URL = 'https://www.instagram.com/creativecodingdetroit/'
@@ -36,7 +40,19 @@ title = 'My New Hugo Project'
 [taxonomies]
   tag = 'tags'
 
+[[cascade]]
+  [cascade.params]
+    type = 'resource'
+  [cascade.target]
+    kind = 'page'
+    path = '/resources/**'
 
+[[cascade]]
+  [cascade.params]
+    type = 'member'
+  [cascade.target]
+    kind = 'page'
+    path = '/members/**'
 
 
 

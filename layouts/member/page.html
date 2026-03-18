@@ -1,10 +1,10 @@
 {{ define "title" }}
+  <h3>Member</h3>
   <h1>{{ .Title }}</h1>
+  {{ partial "forumTag" . }}
 {{ end }}
 
 {{ define "main" }}
   {{ .Content }}
-  {{ range .Pages }}
-    {{ partial "card" . }}
-  {{ end }}
+  {{ partial "tags" . }}
 {{ end }}

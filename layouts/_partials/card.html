@@ -1,0 +1,6 @@
+<div class="card" onclick="window.location = this.firstElementChild.getAttribute('href')">
+  <a href="{{ .RelPermalink }}"><h3>{{ .LinkTitle }}</h3></a>
+  {{ partial "forumTag" . }}
+  <div class="description">{{ .Description }}</div>
+  {{ partial "tags" . }}
+</div>

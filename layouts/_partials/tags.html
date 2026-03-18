@@ -1,0 +1,9 @@
+{{ with .Params.tags }}
+  {{ if ge (len .) 1 }}
+    <div class="tags">
+      {{ range . }}
+        <a href="/tags/{{ . | urlize }}/" class="tag">{{ . }}</a>
+      {{ end -}}
+    </div>
+  {{ end }}
+{{ end }}

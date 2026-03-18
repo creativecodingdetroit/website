@@ -1,0 +1,6 @@
+{{ if .Param "forumUsername" }}
+  <a
+  class="forum-tag"
+  href="https://forum.creativecodingdetroit.org/u/{{ .Param "forumUsername" }}"
+  >{{ .Param "forumUsername" }}</a>
+{{ end }}

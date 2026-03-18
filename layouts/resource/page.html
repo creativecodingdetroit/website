@@ -1,0 +1,15 @@
+{{ define "title" }}
+  <h3>Resource</h3>
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.URL }}
+    {{ if . }}
+      <a href="{{ . }}">{{ . }}</a>
+    {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
+
+{{ define "main" }}
+  {{ .Content }}
+  {{ partial "tags" . }}
+{{ end }}

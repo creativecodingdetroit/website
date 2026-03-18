@@ -6,10 +6,10 @@
   --line-decoration-color: #555;
   --line-decoration: .5px solid var(--line-decoration-color);
   --accent-color: #eee;
+  --secondary-color: #f0d;
   --underline-color: #f0d;
   --underline-color-2: #fff1;
 }
-
 
 html {
   background-color: #222;
@@ -33,11 +33,6 @@ a:active {
   /*text-decoration-style: dotted;*/
   text-decoration-thickness: .5pt;
   transition: text-decoration-thickness .4s, text-decoration-color 2s;
-}
-
-a:hover {
-  text-decoration-thickness: 1rem;
-  text-decoration-color: var(--underline-color-2);
 }
 
 header {
@@ -85,7 +80,6 @@ nav > ul > li::before {
 nav > ul > li:hover::before {
   transform: rotate3d(1, 0, 0, 0deg);
 }
-
 
 .hero {
   background-image: url('/img/ccdet_header.webp');
@@ -213,30 +207,36 @@ div.section-item > h3 {
 
 /* resource & member styling */
 
-div.resource,
-div.member
- {
+div.card {
+  box-sizing: border-box;
   margin-top: 1rem;
-  padding: 1rem 1.618rem;
-  border: var(--line-decoration);
+  padding: 1rem;
+  border-bottom: var(--line-decoration);
+  background-color: #282828;
+  /*background-color: #8883;*/
+  cursor: pointer;
+  position: relative;
 }
 
-div.resource h3,
-div.member h3 {
+div.card a.forum-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+div.card > div.description {
+  margin-top: 0;
+}
+
+div.card h3 {
   margin: 0;
   color: var(--accent-color);
 }
 
-div.members {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-div.member {
-  width: calc(50% - .5rem);
-  margin: .25rem;
-  box-sizing: border-box;
-  min-height: 100px;
+div.card:hover > a,
+a:hover {
+  text-decoration-thickness: 1rem;
+  text-decoration-color: var(--underline-color-2);
 }
 
 div.tags {
@@ -245,7 +245,8 @@ div.tags {
   flex-wrap: wrap;
 }
 
-a.tag {
+a.tag,
+a.forum-tag {
   display: inline-block;
   padding: .25rem 1rem .125rem;
   font-size: .618rem;
@@ -260,4 +261,20 @@ a.tag {
   margin: 0 1px 1px 0;
 }
 
+a.forum-tag {
+  background-color: var(--secondary-color);;
+}
 
+a.tag::before,
+a.forum-tag::before {
+  opacity: .5;
+}
+
+a.tag::before {
+  content: "#";
+}
+
+a.forum-tag::before {
+  margin-right: .5rem;
+  content: "Forum username:";
+}

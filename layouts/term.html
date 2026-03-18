@@ -4,9 +4,9 @@
 
 {{ define "main" }}
   {{ .Content }}
-  <ul>
+  <div class="terms">
   {{ range .Pages }}
-    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{ partial "card" . }}
   {{ end }}
-  </ul>
+  </div>
 {{ end }}
