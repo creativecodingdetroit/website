@@ -5,16 +5,16 @@ date = '2026-03-14'
   [menus.main]
     weight = 10
     name = 'CCDET'
+    [menus.main.params]
+      class = 'accent'
+      [menus.main.params.icon]
+        vendor = 'fas'
+        name = 'bars'
 +++
 
-![Form](/icons/icon-form.svg)
-[Workshop Proposal Form](https://docs.google.com/forms/d/e/1FAIpQLSdwzVf_ihxiNWvFNdQayyRHOm-evI9O2JuxGzrKkWXLBaaV2A/viewform)
 
-![Form](/icons/icon-notes.svg)
-[Meeting Notes]({{< relref "meeting-notes" >}})
 
-![Form](/icons/icon-group.svg)
-[Group Projects]({{< relref "group-projects" >}})
-
-![Form](/icons/icon-spreadsheet.svg)
-[Resources]({{< relref "resources" >}})
+- {{< ico fas file-lines >}} [Workshop Proposal Form](https://docs.google.com/forms/d/e/1FAIpQLSdwzVf_ihxiNWvFNdQayyRHOm-evI9O2JuxGzrKkWXLBaaV2A/viewform)
+- {{< ico fas file-pen >}} [Meeting Notes]({{< relref "meeting-notes" >}})
+- {{< ico fas users-gear >}}  [Group Projects]({{< relref "group-projects" >}})
+- {{< ico fas icons >}} [Resources]({{< relref "resources" >}})

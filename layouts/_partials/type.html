@@ -1,0 +1,9 @@
+<span class="{{ .Type }}">
+  {{ if (eq .Type "member") }}
+    {{ $ctx := dict "vendor" "font-awesome-solid" "name" "user" "size" "1rem" }}
+    {{ partial "icons/icon" $ctx }}
+  {{ else }}
+    {{ $ctx := dict "vendor" "font-awesome-solid" "name" "gear" "size" "1rem" }}
+    {{ partial "icons/icon" $ctx }}
+  {{ end }}
+</span>

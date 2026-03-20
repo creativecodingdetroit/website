@@ -2,7 +2,7 @@
   {{ if ge (len .) 1 }}
     <div class="tags">
       {{ range . }}
-        <a href="/tags/{{ . | urlize }}/" class="tag">{{ . }}</a>
+        <a href="/tags/{{ . | urlize }}/" class="label tag">{{ . }}</a>
       {{ end -}}
     </div>
   {{ end }}

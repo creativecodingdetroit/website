@@ -3,12 +3,22 @@
 /* CCDet specific style */
 
 :root {
+  --max-width: 1100px;
+  --body-margin: max(1rem, calc((100vw - var(--max-width)) / 2));
+  --margin: 8rem;
   --line-decoration-color: #555;
   --line-decoration: .5px solid var(--line-decoration-color);
   --accent-color: #eee;
   --secondary-color: #f0d;
+  --tertiary-color: #0f3;
+  --member-color: #f84;
+  --resource-color: #2f9;
   --underline-color: #f0d;
   --underline-color-2: #fff1;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -22,7 +32,14 @@ body {
   flex-direction: column;
   min-height: 100vh;
   color: #999;
-  line-height: 150%;
+}
+
+.accent {
+  color: var(--accent-color);
+}
+
+.forum {
+  color: var(--secondary-color);
 }
 
 a,
@@ -35,11 +52,9 @@ a:active {
   transition: text-decoration-thickness .4s, text-decoration-color 2s;
 }
 
-header {
-}
-
 nav {
-  margin: 0 8rem;
+  margin: 0 auto;
+  max-width: var(--max-width);
 }
 
 nav > ul {
@@ -77,16 +92,14 @@ nav > ul > li::before {
   transform: rotate3d(1, 1, 0, 90deg);
 }
 
-nav > ul > li:hover::before {
-  transform: rotate3d(1, 0, 0, 0deg);
-}
-
 .hero {
   background-image: url('/img/ccdet_header.webp');
   background-size: cover;
   background-position: left center;
+  width: 100vw;
   height: 25vh;
   position: relative;
+  padding: 0 var(--body-margin);
 }
 
 .hero a {
@@ -94,26 +107,29 @@ nav > ul > li:hover::before {
   position: absolute;
   height: 50%;
   bottom: -2rem;
-  left: 8rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .hero a img {
   height: 100%;
 }
 
-h1.underlined {
-  /*border-bottom: var(--line-decoration);*/
-}
-
 main {
-  margin: 0 8rem 2rem;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 footer {
   background-color: #111;
   color: #555;
   font-size: .618em;
-  margin: 0 8rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: var(--body-margin) auto 0;
   padding: 1rem;
   flex-grow: 1;
   border-left: var(--line-decoration);
@@ -124,27 +140,27 @@ hr {
    border-top: var(--line-decoration);
 }
 
-div.home-cards > ul {
-  list-style: none;
-  display: block;
-  margin: 0;
-  padding: 1rem;
-}
-
-div.home-cards > ul > li + li {
-  margin-top: 1rem;
-}
-
 div.home-cards {
   display: flex;
   gap: 2rem;
   margin-top: 3rem;
 }
 
+div.home-cards ul {
+  list-style: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+div.home-cards ul > li + li {
+  margin-top: 1rem;
+}
+
 div.home-cards > * {
   flex-grow: 1;
-  border-bottom: var(--line-decoration);
   border-top: var(--line-decoration);
+  padding: 1rem;
 }
 
 div.home-cards h1,
@@ -157,15 +173,12 @@ div.home-cards h3 {
   color: #eee;
 }
 
-strong {
-  color: #eee;
-}
-
 div.page-title h1,
 div.page-title h2,
 div.page-title h3 {
   color: var(--accent-color);
   margin: 1rem 0;
+
 }
 
 div.page-title {
@@ -190,19 +203,26 @@ dd::before {
 }
 
 div.section-item {
+  display: flex;
 }
 
 div.section-item + div.section-item {
   margin-top: 1rem;
 }
 
-div.section-item > h3::before {
+div.section-item::before {
   content: '➜';
   margin-right: .5rem;
   color: var(--accent-color);
 }
+
+
 div.section-item > h3 {
   margin: 0;
+}
+
+div.section-item > h3 > a {
+  display: inline-block;
 }
 
 /* resource & member styling */
@@ -218,25 +238,13 @@ div.card {
   position: relative;
 }
 
-div.card a.forum-tag {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-
 div.card > div.description {
-  margin-top: 0;
+  margin-top: 1rem;
 }
 
 div.card h3 {
   margin: 0;
   color: var(--accent-color);
-}
-
-div.card:hover > a,
-a:hover {
-  text-decoration-thickness: 1rem;
-  text-decoration-color: var(--underline-color-2);
 }
 
 div.tags {
@@ -245,8 +253,7 @@ div.tags {
   flex-wrap: wrap;
 }
 
-a.tag,
-a.forum-tag {
+a.label {
   display: inline-block;
   padding: .25rem 1rem .125rem;
   font-size: .618rem;
@@ -259,22 +266,71 @@ a.forum-tag {
   text-transform: uppercase;
   text-decoration: none;
   margin: 0 1px 1px 0;
+  transition: all .2s;
+  box-shadow: 0 0 0rem #0000;
 }
 
-a.forum-tag {
-  background-color: var(--secondary-color);;
+a.label svg {
+  display: block;
 }
 
-a.tag::before,
-a.forum-tag::before {
+a.label.forum {
+  background-color: var(--secondary-color);
+  float: right;
+}
+
+a.label::before {
   opacity: .5;
 }
 
-a.tag::before {
+a.label.tag::before {
   content: "#";
 }
 
-a.forum-tag::before {
-  margin-right: .5rem;
-  content: "Forum username:";
+a.label.type {
+  pointer-events: none;
+  float: right;
+  /*padding: .25rem;*/
+}
+
+.member {
+  color: var(--member-color);
+}
+
+.resource {
+  color: var(--resource-color);
+}
+
+@media (hover: hover) {
+
+  nav > ul > li:hover::before {
+    transform: rotate3d(1, 0, 0, 0deg);
+  }
+
+  div.card:hover a,
+  a:hover {
+    text-decoration-thickness: 1rem;
+    text-decoration-color: var(--underline-color-2);
+  }
+
+  a.label:hover {
+    transform: scale(1.125);
+    box-shadow: 0 0 .1rem #000f;
+  }
+}
+
+@media (max-aspect-ratio: 1/1) {
+  :root {
+    --margin: 1rem;
+  }
+  div.home-cards {
+    flex-direction: column;
+  }
+  nav > ul {
+    flex-direction: column;
+  }
+  nav {
+    writing-mode: sideways-lr;
+    /*text-orientation: mixed;*/
+  }
 }

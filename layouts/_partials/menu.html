@@ -2,7 +2,13 @@
   <ul>
     {{ range site.Menus.main }}
       <li>
-        <a href="{{ .URL }}">{{ .Name }}</a>
+        <a href="{{ .URL }}" class="{{ .Params.class }}">
+          {{ if .Params.icon }}
+            {{ $ctx := dict "vendor" .Params.icon.vendor "name" .Params.icon.name }}
+            {{ partial "icons/icon" $ctx }}
+          {{ end }}
+          {{ .Name }}
+        </a>
       </li>
     {{ end }}
   </ul>

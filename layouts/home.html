@@ -4,35 +4,39 @@
 
 {{ define "main" }}
   <div class="home-cards">
-    <ul>
-      {{ range site.Menus.contact }}
-        <li>
-          {{ if .Params.icon }}
-                <img src="{{ .Params.icon }}">
+    <div>
+      <ul>
+        {{ range site.Menus.contact }}
+          <li>
+            {{ if .Params.icon }}
+                  <img src="{{ .Params.icon }}">
+              {{ end }}
+            {{ if .URL }}
+              <a href="{{ .URL }}">{{ .Name }}</a>
+            {{ else }}
+              {{ .Name }}
             {{ end }}
-          {{ if .URL }}
-            <a href="{{ .URL }}">{{ .Name }}</a>
-          {{ else }}
-            {{ .Name }}
-          {{ end }}
-        </li>
-      {{ end }}
-    </ul>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
 
     <div>
       {{ .Content }}
     </div>
 
-    <ul>
-      <h3>Next event:</h3>
-      {{ range (where .Site.Pages "Section" "events") }}
-      {{ range .Pages }}
-        <li>
-          <h2>{{ .Title }}</h2>
-          {{ .Content }}
-        </li>
-      {{ end }}
-      {{ end }}
-    </ul>
+    <div>
+      <ul>
+        <h3>Next event:</h3>
+        {{ range (where .Site.Pages "Section" "events") }}
+        {{ range .Pages }}
+          <li>
+            <h2>{{ .Title }}</h2>
+            {{ .Content }}
+          </li>
+        {{ end }}
+        {{ end }}
+      </ul>
+    </div>
   </div>
 {{ end }}

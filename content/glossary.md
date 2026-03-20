@@ -5,6 +5,10 @@ template = 'page'
   [menus.main]
     weight = 60
     name = 'Glossary'
+    [menus.main.params]
+      [menus.main.params.icon]
+        vendor = 'fas'
+        name = 'file-word'
 +++
 
 BitBucket
