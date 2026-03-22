@@ -3,6 +3,8 @@
   <h1>{{ .Title }}</h1>
   {{ with .Params.URL }}
     {{ if . }}
+      {{ $ctx := dict "vendor" "fas" "name" "globe" }}
+      {{ partial "icons/icon" $ctx }}
       <a href="{{ . }}">{{ . }}</a>
     {{ end }}
     </div>

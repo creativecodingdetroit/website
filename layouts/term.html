@@ -1,10 +1,10 @@
 {{ define "title" }}
-  <h1>Tag: {{ .Title }}</h1>
+  <h1>Tag: <a class="label tag">{{ .Title }}</a></h1>
 {{ end }}
 
 {{ define "main" }}
   {{ .Content }}
-  <div class="terms">
+  <div>
   {{ range .Pages }}
     {{ partial "card" . }}
   {{ end }}

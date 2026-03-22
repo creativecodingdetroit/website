@@ -1,0 +1,26 @@
+<input type="search" placeholder="filter" id="search-input"></input>
+<a id="search-reset">Reset</a>
+<script>
+  window.addEventListener('load', () => {
+    const input = document.getElementById("search-input");
+    const reset = document.getElementById("search-reset");
+    const container = document.getElementById("{{ . }}");
+    const search = (term) => {
+      input.value = term || '';
+      Array.from(container.children)
+        .forEach((el) => {
+          el.classList.remove('hidden');
+          if (
+            term &&
+            !String(el.textContent)
+              .toLowerCase()
+              .includes(term.toLowerCase())
+          ) el.classList.add('hidden');
+        })
+    }
+    input.addEventListener('keyup', (e) => search(e.target.value));
+    reset.addEventListener('click', (e) => search());
+
+  });
+
+</script>

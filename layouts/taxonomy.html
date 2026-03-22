@@ -4,7 +4,8 @@
 
 {{ define "main" }}
   {{ .Content }}
-  <div class="tags">
+  {{ partial "search" "search-container" }}
+  <div class="terms tags" id="search-container">
   {{ range .Pages }}
     <a href="{{ .RelPermalink }}" class="label tag">{{ .LinkTitle }}</a>
   {{ end }}

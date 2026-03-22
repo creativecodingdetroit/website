@@ -2,9 +2,11 @@
   <h3>Member</h3>
   <h1>{{ .Title }}</h1>
   {{ partial "forum-tag" . }}
+  {{ partial "website" . }}
 {{ end }}
 
 {{ define "main" }}
+  {{ .Description }}
   {{ .Content }}
   {{ partial "tags" . }}
 {{ end }}

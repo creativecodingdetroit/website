@@ -1,0 +1,9 @@
+{{ with .Params.website }}
+  {{ if . }}
+    <a href="{{ . }}" class="label website">
+      {{ $ctx := dict "vendor" "fas" "name" "globe" "size" "1.618rem" }}
+      {{ partial "icons/icon" $ctx }}
+    </a>
+  {{ end }}
+  </div>
+{{ end }}
