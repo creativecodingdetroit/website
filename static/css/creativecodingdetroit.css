@@ -34,6 +34,10 @@ body {
   color: #999;
 }
 
+code, pre {
+  font-family: monospace;
+}
+
 .accent {
   color: var(--accent-color);
 }

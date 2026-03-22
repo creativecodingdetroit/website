@@ -5,17 +5,32 @@
     const input = document.getElementById("search-input");
     const reset = document.getElementById("search-reset");
     const container = document.getElementById("{{ . }}");
+    let error = null;
     const search = (term) => {
+      if (error) container.removeChild(error)
+      error = null;
       input.value = term || '';
+      const hidden = [];
       Array.from(container.children)
-        .forEach((el) => {
+        .forEach((el, index, array) => {
           el.classList.remove('hidden');
           if (
             term &&
             !String(el.textContent)
               .toLowerCase()
               .includes(term.toLowerCase())
-          ) el.classList.add('hidden');
+          ) {
+            el.classList.add('hidden');
+            hidden.push(hidden);
+          }
+          if (hidden.length === array.length) {
+            error = document.createElement('div');
+            error.textContent = 'No matches for ';
+            const query = document.createElement('code');
+            query.textContent = term;
+            error.appendChild(query);
+            container.appendChild(error);
+          }
         })
     }
     input.addEventListener('keyup', (e) => search(e.target.value));
